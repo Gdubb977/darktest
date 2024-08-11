@@ -2,13 +2,13 @@
 
 #TODO
 #IMPORT YOUR LIST HERE 
-
-
+from .mylist import mylist
 def main():
     
     #TODO
     #use the imported list as the new list
     new_list = ['a','b']
+    print(mylist)
     test = new_list.pop(-2)
     
     copy_list = new_list #do not touch 
