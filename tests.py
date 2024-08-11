@@ -1,7 +1,10 @@
 import unittest
+import datetime
 import sys
 from variables_test.python_variables import main as  test_vars
 from lists_test.test_list import main as test_list
+from dict_test.test_dict import main as test_dict 
+
 class TestClasses(unittest.TestCase):
     def __init__(self):
         self.initiated = True
@@ -34,15 +37,30 @@ class TestClasses(unittest.TestCase):
         self.quiz = test_list()
         copy_list = self.quiz[0]
         user_list = self.quiz[1]
+        
         """if copy_list == user_list:
             raise('The List was not changed')"""
     
         if user_list[-2].lower() != 'dragon fruit':
-                    
             raise('Dragon Fruit Not added')
 
         print('Passed')
+    
+    @classmethod
+    def tDict(self):
+        self.quiz = test_dict()
+        try:
+            if self.quiz.date != datetime.datetime.now():
+                raise Exception(f"Times may be off, but the date was added {self.quiz.date}")
+        except AttributeError:
+            raise Exception('The dictionary does not have a date added')
+     
+        if not self.quiz.name:
+            raise Exception('No named was added for the user.')
+       
         
+        
+     
 if __name__ == '__main__':
     options = ['variables', 'list', 'dict', 'classes']
     all_tests = TestClasses()
@@ -58,5 +76,9 @@ if __name__ == '__main__':
             
                 case 'list':
                     all_tests.tList()
+                    break
+                
+                case 'dict':
+                    all_tests.tDict()
                     break
             

@@ -8,13 +8,15 @@ def main():
     
     #TODO
     #use the imported list as the new list
-    new_list = None
+    new_list = ['a','b']
+    test = new_list.pop(-2)
     
     copy_list = new_list #do not touch 
     
     #TODO
     #add a new fruit to the new_list
 
+    
     #TODO
     #remove the 1st item from the list
     
